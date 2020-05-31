@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -13,7 +9,7 @@
   }
 }
 
-.App-header {
+.App {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,15 +20,48 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Contacts {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Box {
+  height: 200px;
+  width: 300px;
+  border: 3px solid white;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
 }
+
+.Box img {
+  height: 100px;
+  margin-top: 50px;
+  margin-left: 10px;
+  float: left;
+}
+
+.Box h3 {
+  font-size: 20px;
+  position: absolute;
+  margin-left: 60px;
+  margin-top: 5px;
+}
+
+.Show-More-Wrapper button {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: -50px;
+  border-radius: 5px;
+}
+
+.Show-More {
+  text-align: left;
+  position: absolute;
+  margin-top: 65px;
+  margin-left: 115px;
+  font-size: 13px;
+}
+

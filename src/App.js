@@ -1,26 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import ShowMore from './ShowMore';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      users: []
+    };
+  }
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData(){
+
+    fetch('https://randomuser.me/api?results=25')
+    .then(response => {return response.json();})
+    .then(json => {
+      this.setState({ 
+        users: json.results 
+    });
+    console.log(this.state.users)
+    })
+  }
+ 
+  render() {
+    return (
+      <div className="App">
+        <h1>Contact List</h1>   
+        <div className="Contacts">
+            {this.state.users.map((user, i) => {
+            return (
+              <div className="Box" key={i}>
+                <img className="picture" src={user.picture.large} alt=''></img>
+                <h3>{`${user.name.first} ${user.name.last}`}</h3>
+                <ShowMore user={user}/>
+              </div>
+            )
+          })}
+        </div>        
+      </div>
+    );
+  }
 }
 
 export default App;
